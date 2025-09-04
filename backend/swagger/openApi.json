@@ -123,10 +123,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoResponse"
-                  }
+                  "type": "object",
+                  "properties": {
+                    "todos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TodoResponse"
+                      }
+                    }
+                  },
+                  "required": ["todos"]
                 }
               }
             }
