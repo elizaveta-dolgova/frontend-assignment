@@ -1,6 +1,8 @@
 import {Helmet} from 'react-helmet-async';
 import {useTranslation} from 'react-i18next';
-import {Welcome} from './pages/Welcome';
+import {AppRouter} from './components/AppRouter';
+import StartWrapper from './components/StartWrapper';
+import {Layout} from './components/Layout';
 
 function App() {
   const {i18n, t} = useTranslation();
@@ -13,12 +15,13 @@ function App() {
         htmlAttributes={{lang: i18n.language}}
       >
         <meta name="description" content={t('app.description')} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Helmet>
-
-      {/*
-       * start from here
-       */}
-      <Welcome />
+      <StartWrapper>
+        <Layout>
+          <AppRouter />
+        </Layout>
+      </StartWrapper>
     </>
   );
 }
